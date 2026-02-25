@@ -1,0 +1,376 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* Simple 2/3 Layout Styles */
+@font-face {
+    font-family: "Favorit";
+    src: url("Favorit_Medium.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Favorit";
+    src: url("Favorit_Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Favorit", sans-serif;
+    background: #ffffff;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.simple-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left Scrollable Area (2/3) */
+.left-scroll {
+    width: 66.67%;
+    background: #ffffff;
+    overflow-y: auto;
+}
+
+.scroll-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.portfolio-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 17/11;
+    object-fit: cover;
+}
+
+/* Right Static Area (1/3) */
+.right-static {
+    width: 33.33%;
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    padding-top: 2rem;
+}
+
+.static-content {
+    padding: 0 2rem 3rem 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.top-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.static-content h2 {
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-family: "Favorit", sans-serif;
+}
+
+.name-link {
+    color: rgba(0, 0, 0, 1);
+    text-decoration: none;
+    cursor: pointer;
+    transition: text-decoration 0.2s ease;
+}
+
+.name-link:hover {
+    text-decoration: underline;
+}
+
+.static-content .description {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 1);
+    line-height: 1.4;
+    font-family: "Favorit", sans-serif;
+    margin: 0 0 1rem 0;
+}
+
+.static-content p {
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 1);
+    line-height: 1.5;
+    font-family: "Favorit", sans-serif;
+}
+
+.nav-links {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.nav-link {
+    color: rgba(0, 0, 0, 1);
+    text-decoration: none;
+    font-family: "Favorit", sans-serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: text-decoration 0.2s ease;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.project-nav {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.project-nav-link {
+    color: rgba(0, 0, 0, 1);
+    text-decoration: none;
+    font-family: "Favorit", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: text-decoration 0.2s ease;
+    text-align: right;
+}
+
+.project-nav-link:hover {
+    text-decoration: underline;
+}
+
+.project-nav-link.active {
+    font-weight: 700;
+}
+
+.table-of-contents {
+    margin: 1.5rem 0;
+    width: 100%;
+}
+
+.table-of-contents h3 {
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-family: "Favorit", sans-serif;
+    text-align: right;
+}
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.project-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.project-title {
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 1);
+    font-family: "Favorit", sans-serif;
+    font-weight: 500;
+    line-height: 1.3;
+    text-decoration: none;
+    cursor: pointer;
+    transition: text-decoration 0.2s ease;
+}
+
+.project-title:hover {
+    text-decoration: underline;
+}
+
+.project-title.active {
+    font-weight: 700;
+}
+
+.project-date {
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.7);
+    font-family: "Favorit", sans-serif;
+    margin-top: 0.2rem;
+}
+
+.contact-info {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.contact-info p {
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 1);
+    line-height: 1.4;
+    font-family: "Favorit", sans-serif;
+    margin: 0;
+}
+
+/* Modal Gallery Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 2rem auto;
+    padding: 2rem;
+    width: 90%;
+    max-width: 1200px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.8);
+    font-family: "Favorit", sans-serif;
+}
+
+.close:hover {
+    color: rgba(0, 0, 0, 1);
+}
+
+.modal-content h2 {
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: 2rem;
+    font-weight: 600;
+    font-family: "Favorit", sans-serif;
+    text-align: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-item {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: pointer;
+}
+
+/* Gallery Page Styles */
+.gallery-page {
+    min-height: 100vh;
+    background: #ffffff;
+}
+
+.gallery-header {
+    padding: 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.back-link {
+    color: rgba(0, 0, 0, 1);
+    text-decoration: none;
+    font-family: "Favorit", sans-serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.back-link:hover {
+    opacity: 0.7;
+}
+
+.gallery-header h1 {
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 600;
+    font-family: "Favorit", sans-serif;
+    margin: 0;
+}
+
+.gallery-main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Scrollbar Styling - Hidden */
+.left-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.left-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .simple-container {
+        flex-direction: column;
+    }
+    
+    .left-scroll {
+        width: 100%;
+        height: 70vh;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .right-static {
+        width: 100%;
+        height: 30vh;
+        position: relative;
+    }
+    
+    .yellow-block {
+        height: 150px;
+    }
+}
